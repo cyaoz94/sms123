@@ -1,11 +1,11 @@
-# Very short description of the package
+# Laravel SMS123 API Integration package
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/cyaoz94/sms123.svg?style=flat-square)](https://packagist.org/packages/cyaoz94/sms123)
 [![Build Status](https://img.shields.io/travis/cyaoz94/sms123/master.svg?style=flat-square)](https://travis-ci.org/cyaoz94/sms123)
 [![Quality Score](https://img.shields.io/scrutinizer/g/cyaoz94/sms123.svg?style=flat-square)](https://scrutinizer-ci.com/g/cyaoz94/sms123)
 [![Total Downloads](https://img.shields.io/packagist/dt/cyaoz94/sms123.svg?style=flat-square)](https://packagist.org/packages/cyaoz94/sms123)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+A simple package to simplify API integration with SMS Provider SMS123 for Laravel 8
 
 ## Installation
 
@@ -15,10 +15,11 @@ You can install the package via composer:
 composer require cyaoz94/sms123
 ```
 
-## Usage
+## Configs
+You can publish and modify the config file to specify your own apiKey and email values
 
 ``` php
-// Usage description here
+php artisan vendor:publish --provider="Cyaoz94\Sms123\Sms123ServiceProvider" --tag="config"
 ```
 
 ### Testing
