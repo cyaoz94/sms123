@@ -54,7 +54,7 @@ class Sms123ServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->bind('sms123', function () {
-            return new Sms123;
+            return new Sms123();
         });
     }
 }
