@@ -1,0 +1,55 @@
+{
+    "name": "cyaoz94/sms123",
+    "description": "A simple package to simplify integration process with SMS123 SMS service provider",
+    "keywords": [
+        "cyaoz94",
+        "sms123"
+    ],
+"homepage": "https://github.com/cyaoz94/sms123",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Casper Ho",
+            "email": "casperyaoz@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cyaoz94\\Sms123\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cyaoz94\\Sms123\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cyaoz94\\Sms123\\Sms123ServiceProvider"
+            ],
+            "aliases": {
+                "Sms123": "Cyaoz94\\Sms123\\Sms123Facade"
+            }
+        }
+    }
+}
