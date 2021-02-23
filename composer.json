@@ -1,6 +1,6 @@
 {
     "name": "cyaoz94/sms123",
-    "description": "A simple package to simplify integration process with SMS123 SMS service provider",
+    "description": "A simple package to simplify API integration with SMS Provider SMS123 for Laravel 8",
     "keywords": [
         "cyaoz94",
         "sms123"
