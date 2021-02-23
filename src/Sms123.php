@@ -11,6 +11,15 @@ use Psr\Http\Message\ResponseInterface;
 
 class Sms123
 {
+    protected $apiKey;
+    protected $email;
+
+    public function __construct()
+    {
+        $this->apiKey = config('config.SMS123_API_KEY');
+        $this->email = config('config.SMS123_EMAIL');
+    }
+
     /**
      * calls API using GET method
      *
@@ -71,8 +80,8 @@ class Sms123
     private function getStickyParams()
     {
         return [
-            'apiKey' => config('app.SMS123_API_KEY'),
-            'email' => config('app.SMS123_EMAIL'),
+            'apiKey' => $this->apiKey,
+            'email' => $this->email,
         ];
     }
 
