@@ -2,6 +2,7 @@
 
 namespace Cyaoz94\Sms123;
 
+use Cyaoz94\Sms123\Exceptions\CredentialsException;
 use Cyaoz94\Sms123\Exceptions\SmsApiException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
@@ -76,9 +77,12 @@ class Sms123
      * Get SMS123 apiKey and email params from config
      *
      * @return array
+     * @throws \Throwable
      */
     private function getStickyParams()
     {
+        throw_if (!($this->apiKey) || !($this->email), new CredentialsException());
+
         return [
             'apiKey' => $this->apiKey,
             'email' => $this->email,
