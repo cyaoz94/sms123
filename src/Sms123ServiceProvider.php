@@ -20,9 +20,9 @@ class Sms123ServiceProvider extends ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         if ($this->app->runningInConsole()) {
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__ . '/../config/sms123.php' => config_path('sms123.php'),
-            ], 'config');*/
+            ], 'config');
 
             // Publishing the views.
             /*$this->publishes([
