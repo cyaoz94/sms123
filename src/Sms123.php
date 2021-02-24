@@ -16,8 +16,8 @@ class Sms123
 
     public function __construct()
     {
-        $this->apiKey = config('config.SMS123_API_KEY');
-        $this->email = config('config.SMS123_EMAIL');
+        $this->apiKey = config('sms123.SMS123_API_KEY');
+        $this->email = config('sms123.SMS123_EMAIL');
     }
 
     /**

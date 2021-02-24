@@ -20,9 +20,9 @@ class Sms123ServiceProvider extends ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('sms123.php'),
-            ], 'config');
+            /*$this->publishes([
+                __DIR__ . '/../config/sms123.php' => config_path('sms123.php'),
+            ], 'config');*/
 
             // Publishing the views.
             /*$this->publishes([
@@ -50,7 +50,7 @@ class Sms123ServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'sms123');
+        $this->mergeConfigFrom(__DIR__ . '/../config/sms123.php', 'sms123');
 
         // Register the main class to use with the facade
         $this->app->bind('sms123', function () {
