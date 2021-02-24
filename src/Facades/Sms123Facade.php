@@ -4,7 +4,7 @@ namespace Cyaoz94\Sms123\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Sms123 extends Facade
+class Sms123Facade extends Facade
 {
     /**
      * Get the registered name of the component.

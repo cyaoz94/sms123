@@ -48,7 +48,7 @@
                 "Cyaoz94\\Sms123\\Sms123ServiceProvider"
             ],
             "aliases": {
-                "Sms123": "Cyaoz94\\Sms123\\Facades\\Sms123"
+                "Sms123": "Cyaoz94\\Sms123\\Facades\\Sms123Facade"
             }
         }
     }
