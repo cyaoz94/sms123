@@ -113,16 +113,16 @@ class Sms123
     /**
      * Calls SMS123's API to send sms
      *
-     * @param $contact_number
+     * @param $contactNumber
      * @param $messageContent
      * @param null $referenceId
      * @throws SmsApiException
      */
-    public function sendSMS($contact_number, $messageContent, $referenceId = null)
+    public function sendSms($contactNumber, $messageContent = '', $referenceId = null)
     {
         $uri = 'https://www.sms123.net/api/send.php';
         $params = [
-            'recipients' => $contact_number,
+            'recipients' => $contactNumber,
             'messageContent' => $messageContent,
             'referenceId' => $referenceId ? $referenceId : Str::random(),
         ];
@@ -139,7 +139,7 @@ class Sms123
      * @return ResponseInterface
      * @throws SmsApiException
      */
-    public function addTemplate($templateTitle, $messageContent, $referenceId = null)
+    public function addTemplate($templateTitle, $messageContent = '', $referenceId = null)
     {
         $uri = 'https://www.sms123.net/api/smsAddTemplate.php ';
         $params = [
