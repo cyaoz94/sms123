@@ -16,14 +16,32 @@ composer require cyaoz94/sms123
 ```
 
 ## Configs
-You can publish and modify the config file to specify your own apiKey and email values
+This is not required by default, the package will retrieve the API key and email defined in your `.env` file using the key `SMS123_API_KEY` and `SMS123_EMAIL`. However, you can publish and modify the config file to your liking.
 
 ``` php
 php artisan vendor:publish --provider="Cyaoz94\Sms123\Sms123ServiceProvider" --tag="config"
 ```
 
-### Testing
+## Usage
+This package provides the facade named `Sms123Facade`. It contains 3 methods with examples below
+```phpt
+Sms123Facade::sendSms($contactNumber, $messageContent, $referenceId); // send sms
+Sms123Facade::addTemplate($templateTitle, $messageContent, $referenceId); // add template
+Sms123Facade::getBalance(); // get balance 
+```
 
+## Error Handling
+This package provides 2 exception classes
+```phpt
+CredentialsException; // when credentials are missing
+SmsApiException; // something went wrong when calling sms123 API
+```
+
+## Logging
+When debug mode is on. This package will log every API call into `../storage/logs/sms123.log`
+
+### Testing
+For now, there are no tests included in this package.
 ``` bash
 composer test
 ```
