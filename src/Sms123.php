@@ -43,6 +43,9 @@ class Sms123
             throw new SmsApiException();
         }
 
+        // general response handler
+        $this->responseHandler($response);
+
         self::logApi($uri, $params, (string)$response->getBody());
         return $response;
     }
@@ -68,6 +71,9 @@ class Sms123
         } catch (GuzzleException $e) {
             throw new SmsApiException();
         }
+
+        // general response handler
+        $this->responseHandler($response);
 
         self::logApi($uri, $params, (string)$response->getBody());
         return $response;
@@ -170,5 +176,17 @@ class Sms123
         throw_if($body['msgCode'] != 'E00001', new SmsApiException());
 
         return $body['balance'];
+    }
+
+    /**
+     * To detect the error response from SMS123 API
+     * https://www.sms123.net/api/SMS123APIDoc.pdf
+     **/
+    private function responseHandler($response)
+    {
+        $body = json_decode($response->getBody(), true);
+        if ($body['status'] === 'error') {
+            throw new SmsApiException();
+        }
     }
 }
