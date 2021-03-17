@@ -12,11 +12,13 @@ use Psr\Http\Message\ResponseInterface;
 
 class Sms123
 {
+    protected $apiHost;
     protected $apiKey;
     protected $email;
 
     public function __construct()
     {
+        $this->apiHost = rtrim(config('sms123.SMS123_API_HOST'), '/');
         $this->apiKey = config('sms123.SMS123_API_KEY');
         $this->email = config('sms123.SMS123_EMAIL');
     }
@@ -87,7 +89,7 @@ class Sms123
      */
     private function getStickyParams()
     {
-        throw_if (!($this->apiKey) || !($this->email), new CredentialsException());
+        throw_if(!($this->apiKey) || !($this->email), new CredentialsException());
 
         return [
             'apiKey' => $this->apiKey,
@@ -126,7 +128,7 @@ class Sms123
      */
     public function sendSms($contactNumber, $messageContent = '', $referenceId = null)
     {
-        $uri = 'https://www.sms123.net/api/send.php';
+        $uri = "{$this->apiHost}/api/send.php";
         $params = [
             'recipients' => $contactNumber,
             'messageContent' => $messageContent,
@@ -147,7 +149,7 @@ class Sms123
      */
     public function addTemplate($templateTitle, $messageContent = '', $referenceId = null)
     {
-        $uri = 'https://www.sms123.net/api/smsAddTemplate.php ';
+        $uri = "{$this->apiHost}/api/smsAddTemplate.php";
         $params = [
             'templateTitle' => $templateTitle,
             'messageContent' => $messageContent,
@@ -166,7 +168,7 @@ class Sms123
      */
     public function getBalance()
     {
-        $uri = 'https://www.sms123.net/api/getBalance.php';
+        $uri = "{$this->apiHost}/api/getBalance.php";
 
         $response = self::apiGet($uri);
 
