@@ -48,8 +48,9 @@ class Sms123
         // general response handler
         $this->responseHandler($response);
 
-        self::logApi($uri, $params, (string)$response->getBody());
-        return $response;
+        $responseBody = $response->getBody();
+        self::logApi($uri, $params, json_encode($responseBody));
+        return $responseBody;
     }
 
     /**
@@ -77,8 +78,9 @@ class Sms123
         // general response handler
         $this->responseHandler($response);
 
-        self::logApi($uri, $params, (string)$response->getBody());
-        return $response;
+        $responseBody = $response->getBody();
+        self::logApi($uri, $params, json_encode($responseBody));
+        return $responseBody;
     }
 
     /**
@@ -134,7 +136,7 @@ class Sms123
             'referenceId' => $referenceId ? $referenceId : Str::random(),
         ];
 
-        self::apiGet($uri, $params);
+        return self::apiGet($uri, $params);
     }
 
     /**
