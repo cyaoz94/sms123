@@ -110,8 +110,7 @@ class Sms123
             return;
         }
 
-        $log = Log::channel('sms123');
-        $log->info(collect([
+        Log::info(collect([
             'uri' => $uri,
             'body' => $params,
             'response' => $response
