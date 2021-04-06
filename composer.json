@@ -3,9 +3,11 @@
     "description": "A simple package to simplify API integration with SMS Provider SMS123 for Laravel 8",
     "keywords": [
         "cyaoz94",
+        "crossRT",
         "sms123"
     ],
-"homepage": "https://github.com/cyaoz94/sms123",
+    "version": "1.0.1",
+    "homepage": "https://github.com/cyaoz94/sms123",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -37,7 +39,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true

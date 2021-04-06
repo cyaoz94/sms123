@@ -42,7 +42,7 @@ class Sms123
                 'http_error' => false,
             ]);
         } catch (GuzzleException $e) {
-            throw new SmsApiException();
+            throw new SmsApiException($e->getCode(), $e->getMessage());
         }
 
         // general response handler
@@ -71,7 +71,7 @@ class Sms123
                 'http_error' => false,
             ]);
         } catch (GuzzleException $e) {
-            throw new SmsApiException();
+            throw new SmsApiException($e->getCode(), $e->getMessage());
         }
 
         // general response handler
@@ -175,7 +175,7 @@ class Sms123
         $body = json_decode((string)$response->getBody());
 
         // if not success msgCode
-        throw_if($body['msgCode'] != 'E00001', new SmsApiException());
+        throw_if($body['msgCode'] != 'E00001', new SmsApiException($body['msgCode'], $body['statusMsg']));
 
         return $body['balance'];
     }
@@ -188,7 +188,7 @@ class Sms123
     {
         $body = json_decode($response->getBody(), true);
         if ($body['status'] === 'error') {
-            throw new SmsApiException();
+            throw new SmsApiException($body['msgCode'], $body['statusMsg']);
         }
     }
 }
